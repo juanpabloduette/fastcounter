@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				// MICRO 1
+				let contador1 = 0;
+				let lugares1 = 0;
+				let quedanAsientos1 = 0;
+
+				const contadorMicro1 = document.getElementById("contador-1");
+				const buttonEmpezar1 = document.getElementById("empezar1");
+				const buttonResetear1 = document.getElementById("resetear1");
+				const buttonAdd1 = document.getElementById("add1");
+				const buttonSubtract1 = document.getElementById("subtract1");
+				const quedan1 = document.getElementById("quedan1");
+
+				buttonEmpezar1.addEventListener("click", () => {
+					lugares1 = parseInt(document.getElementById("lugaresselect1").value);
+
+					if (contadorMicro1.textContent === "0") {
+						// alert("No podes empezar otra vez");
+
+						contadorMicro1.textContent = `${contador1}/${lugares1}`;
+						quedanAsientos1 = Math.abs(contador1 - lugares1);
+						quedan1.textContent = `Quedan ${quedanAsientos1} lugares`;
+					} else {
+						// alert("Resetear y empezar desde cero?");
+						const confirmarEmpezar1 = confirm(
+							"¿Está seguro que desea empezar desde cero con " +
+								lugares1 +
+								" asientos?"
+						);
+						if (confirmarEmpezar1) {
+							contador1 = 0;
+							contadorMicro1.textContent = `${contador1}/${lugares1}`;
+							quedanAsientos1 = Math.abs(contador1 - lugares1);
+							quedan1.textContent = `Quedan ${quedanAsientos1} lugares`;
+						}
+					}
+
+					// contadorMicro1.innerHTML = "0";
+
+					// Función para actualizar el contador en la página
+					// function actualizarContador() {
+					// 	document.getElementById("contador").innerText = `Personas: ${contador1}`;
+					// }
+
+					// Función para iniciar el escaneo NFC
+					// function iniciarEscaneoNFC() {
+					// 	if ("NDEFReader" in window) {
+					// 		const reader = new NDEFReader();
+
+					// 		// Intentar escanear la pulsera NFC
+					// 		reader
+					// 			.scan()
+					// 			.then(() => {
+					// 				console.log("Escaneo NFC iniciado. Acerque la pulsera.");
+
+					// 				// Evento que se dispara al leer una pulsera NFC
+					// 				reader.onreading = (event) => {
+					// 					const serialNumber = event.serialNumber;
+					// 					console.log(`Pulsera detectada: ${serialNumber}`);
+
+					// 					// Incrementar el contador cada vez que se detecta una pulsera
+					// 					// contador1++;
+					// 					alert("Pulsera detectada");
+					// 					// actualizarContador();
+					// 				};
+					// 			})
+					// 			.catch((error) => {
+					// 				console.log("Error escaneando NFC:", error);
+					// 			});
+					// 	} else {
+					// 		alert("NFC no es soportado en este dispositivo.");
+					// 	}
+					// }
+					// iniciarEscaneoNFC();
+				});
+
+				buttonResetear1.addEventListener("click", () => {
+					const confirmar = confirm("¿Está seguro que desea resetear?");
+					if (confirmar) {
+						contador1 = 0;
+						lugares1 = 0;
+						contadorMicro1.innerHTML = "0";
+						quedan1.textContent = `Quedan ${lugares1} lugares`;
+					}
+				});
+
+				buttonAdd1.addEventListener("click", () => {
+					if (contador1 < lugares1) {
+						contadorMicro1.textContent = `${(contador1 += 1)}/${lugares1}`;
+						quedanAsientos1 = Math.abs(contador1 - lugares1);
+						quedan1.textContent = `Quedan ${quedanAsientos1} lugares`;
+					} else if ((contador1 = lugares1)) {
+						alert("Micro 1 completo");
+					}
+				});
+
+				buttonSubtract1.addEventListener("click", () => {
+					if (contador1 > 0) {
+						contador1--;
+						contadorMicro1.textContent = `${contador1}/${lugares1}`;
+						quedanAsientos1 = Math.abs(contador1 - lugares1);
+						quedan1.textContent = `Quedan ${quedanAsientos1} lugares`;
+					}
+				});
+
+				//MICRO 2
+
+				let contador2 = 0;
+				let lugares2 = 0;
+				let quedanAsientos2 = 0;
+
+				const contadorMicro2 = document.getElementById("contador-2");
+				const buttonEmpezar2 = document.getElementById("empezar2");
+				const buttonResetear2 = document.getElementById("resetear2");
+				const buttonAdd2 = document.getElementById("add2");
+				const buttonSubtract2 = document.getElementById("subtract2");
+				const quedan2 = document.getElementById("quedan2");
+				buttonEmpezar2.addEventListener("click", () => {
+					lugares2 = parseInt(document.getElementById("lugaresselect2").value);
+
+					if (contadorMicro2.textContent === "0") {
+						// alert("No podes empezar otra vez");
+
+						contadorMicro2.textContent = `${contador2}/${lugares2}`;
+						quedanAsientos2 = Math.abs(contador2 - lugares2);
+						quedan2.textContent = `Quedan ${quedanAsientos2} lugares`;
+					} else {
+						// alert("Resetear y empezar desde cero?");
+						const confirmarEmpezar2 = confirm(
+							"¿Está seguro que desea empezar desde cero con " +
+								lugares2 +
+								" asientos?"
+						);
+						if (confirmarEmpezar2) {
+							contador2 = 0;
+							contadorMicro2.textContent = `${contador2}/${lugares2}`;
+							quedanAsientos2 = Math.abs(contador2 - lugares2);
+							quedan2.textContent = `Quedan ${quedanAsientos2} lugares`;
+						}
+					}
+
+					// contadorMicro2.innerHTML = "0";
+					// contadorMicro2.textContent = `${contador2}/${lugares2}`;
+					// quedanAsientos2 = Math.abs(contador2 - lugares2);
+					// quedan2.textContent = `Quedan ${quedanAsientos2} lugares`;
+				});
+
+				buttonResetear2.addEventListener("click", () => {
+					const confirmar = confirm("¿Está seguro que desea resetear?");
+					if (confirmar) {
+						contador2 = 0;
+						lugares2 = 0;
+						contadorMicro2.innerHTML = "0";
+						quedan2.textContent = `Quedan ${lugares2} lugares`;
+					}
+					// contador1 = 0;
+					// lugares1 = 0;
+					// contadorMicro1.innerHTML = "0";
+				});
+
+				buttonAdd2.addEventListener("click", () => {
+					if (contador2 < lugares2) {
+						contadorMicro2.textContent = `${(contador2 += 1)}/${lugares2}`;
+						quedanAsientos2 = Math.abs(contador2 - lugares2);
+						quedan2.textContent = `Quedan ${quedanAsientos2} lugares`;
+					} else if ((contador2 = lugares2)) {
+						alert("Micro 2 completo");
+					}
+				});
+
+				buttonSubtract2.addEventListener("click", () => {
+					if (contador2 > 0) {
+						contador2--;
+						contadorMicro2.textContent = `${contador2}/${lugares2}`;
+						quedanAsientos2 = Math.abs(contador2 - lugares2);
+						quedan2.textContent = `Quedan ${quedanAsientos2} lugares`;
+					}
+				});
+
+				const switchButton = document.getElementById("remember_me");
+				const mainLayer = document.getElementById("mainlayer");
+				let esReverse;
+				switchButton.addEventListener("click", () => {
+					// alert("click");
+
+					// mainlayer.style.flexDirection = "column-reverse";
+					if (esReverse) {
+						mainlayer.style.flexDirection = "column";
+						esReverse = false;
+					} else {
+						mainlayer.style.flexDirection = "column-reverse";
+						esReverse = true;
+					}
+					// esReverse = !esReverse; // Alterna el estado
+				});
+
+				console.log("El DOM está completamente cargado");
+			});
+		</script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			html {
+				background-color: #201c4e;
+				color: #201c4e;
+				font-family: Arial, Helvetica, sans-serif;
+			}
+			main {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				flex-direction: column;
+				width: 100%;
+				padding: 10px 0;
+			}
+
+			.remember-me {
+				/* text-align: center; */
+				position: absolute;
+				/* width: 100%;
+				height: 100%; */
+				top: 15px;
+				right: 0;
+				/* z-index: 1; */
+			}
+			.remember-me input {
+				display: none;
+				/* visibility: hidden; */
+			}
+			.remember-me label {
+				cursor: pointer;
+				margin-top: 20px;
+				color: #fff;
+				font-family: "Raleway", sans-serif;
+				font-weight: bold;
+			}
+			.remember-me .switch {
+				width: 50px;
+				height: 20px;
+				background: rgba(0, 0, 0, 0.45);
+				border-radius: 100px;
+				display: inline-block;
+				position: relative;
+				transform: rotate(270deg);
+				top: 15px;
+				left: -5px;
+			}
+			.remember-me .switch .dot {
+				position: absolute;
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				background: gray;
+				border-radius: 100%;
+				left: 0;
+				transition: 0.3s;
+				-o-transition: 0.3s;
+				-moz-transition: 0.3s;
+				-webkit-transition: 0.3s;
+			}
+			.remember-me input:checked + label .switch .dot {
+				left: 30px;
+				background: #01ddc3;
+			}
+
+			.titulomicro {
+				font-size: 50px;
+			}
+			.micro1 {
+				background-color: #01ddc3;
+				padding: 10px 40px;
+				border-radius: 25px;
+				margin: 5px;
+				min-width: 340px;
+			}
+			.contador-box-count {
+				font-size: 60px;
+				text-align: center;
+			}
+
+			.buttons {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				flex-direction: column;
+				width: 100%;
+				margin-top: 5px;
+			}
+			.commands {
+				display: flex;
+				justify-content: center;
+				width: 100%;
+				margin-top: 20px;
+			}
+			#lugaresselect1,
+			#lugaresselect2 {
+				font-size: 20px;
+			}
+			#empezar1,
+			#resetear1,
+			#empezar2,
+			#resetear2 {
+				padding: 4px 4px;
+				font-size: 20px;
+				border-radius: 5px;
+				border-style: none;
+			}
+			#subtract1,
+			#add1,
+			#subtract2,
+			#add2 {
+				padding: 10px 20px;
+				margin: 0 10px;
+				font-size: 40px;
+				border-radius: 5px;
+				border-style: none;
+				min-width: 64px;
+			}
+
+			.contador-box-1 .buttons button {
+				margin: 3px;
+			}
+
+			.quedan1 {
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<main id="mainlayer">
+			<div class="micro1">
+				<div class="contador-box-1">
+					<p class="titulomicro">Micro 1</p>
+					<p>(el de adelante)</p>
+					<div class="buttons">
+						<select id="lugaresselect1">
+							<option value="46">46 Asientos</option>
+							<option value="50">50 Asientos</option>
+						</select>
+						<div class="start-reset">
+							<button id="empezar1">Empezar</button>
+							<button id="resetear1">Resetear</button>
+						</div>
+						<div class="commands">
+							<button id="subtract1">-</button>
+							<button id="add1">+</button>
+						</div>
+					</div>
+				</div>
+				<p class="contador-box-count" id="contador-1">0</p>
+				<p class="quedan1" id="quedan1">Quedan x Lugares</p>
+			</div>
+			<div class="micro1">
+				<div class="contador-box-1">
+					<p class="titulomicro">Micro 2</p>
+					<p>(el de atras)</p>
+					<div class="buttons">
+						<select id="lugaresselect2">
+							<option value="46">46 Asientos</option>
+							<option value="50">50 Asientos</option>
+						</select>
+						<div class="start-reset">
+							<button id="empezar2">Empezar</button>
+							<button id="resetear2">Resetear</button>
+						</div>
+						<div class="commands">
+							<button id="subtract2">-</button>
+							<button id="add2">+</button>
+						</div>
+					</div>
+				</div>
+				<p class="contador-box-count" id="contador-2">0</p>
+				<p class="quedan1" id="quedan2">Quedan x Lugares</p>
+			</div>
+			<!-- <div>Contador 0.87v</div> -->
+			<div class="buttonSwitch">
+				<div class="remember-me">
+					<input type="checkbox" name="remember_me" id="remember_me" checked />
+					<label for="remember_me">
+						<div class="switch">
+							<span class="dot"></span>
+						</div>
+						<!-- Switch&nbsp;&nbsp;&nbsp;&nbsp; -->
+					</label>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>
