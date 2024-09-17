@@ -1,0 +1,8 @@
+{
+    "builds": [
+      { "src": "contador.html", "use": "@vercel/static-build" }
+    ],
+    "routes": [
+      { "src": "/(.*)", "dest": "/contador.html" }
+    ]
+  }
